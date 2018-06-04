@@ -1,0 +1,143 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body{
+    background-color: rgb(190, 231, 255);
+    padding: 0px 100px;
+}
+h1 {
+    color: rgb(121, 185, 245);
+    text-align: center;
+    font-size: 200%;
+    background-color: rgb(253, 253, 247);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+h1:hover{
+    cursor: pointer;
+    text-shadow: 0 0 2px rgb(17, 120, 255);
+    box-shadow: 0 0 3px rgb(17, 120, 255);
+    color: white;
+    background-color: rgb(98, 210, 255);
+}
+.visitorinteract{
+    display: inline-block;
+    width: 100%;
+}
+#visitortwit{
+    width: 100%;
+}
+#submit{
+    /* display: block; */
+    overflow: auto;
+    background-color: rgb(255, 255, 240);
+    border: none;
+    border-color: rgb(121, 185, 245);
+    color: rgb(121, 185, 245);
+    padding: 5px 5px;
+    text-align: center;
+    width: 100%;
+    /* display: inline-block; */
+    font-size: 100%;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#submit:hover{
+    text-shadow: 0 0 1px rgb(17, 120, 255);
+    box-shadow: 0 0 5px rgb(17, 120, 255);
+    color: white;
+    background-color: rgb(98, 210, 255);
+}
+#userList{
+    overflow: auto;
+    display: block;
+    float: left;
+    width: 150px;
+    padding: 10px;
+    min-height: 100%;
+    font-size: 100%;
+    text-align: center;
+    line-height: 200%;
+}
+#home{
+    overflow: auto;
+    display: block;
+    background-color: rgb(255, 255, 240);
+    width: 100%;
+    border-color: rgb(121, 185, 245);
+    color: rgb(121, 185, 245);
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 120%;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#home:hover{
+    text-shadow: 0 0 1px rgb(17, 120, 255);
+    box-shadow: 0 0 5px rgb(17, 120, 255);
+    color: white;
+    background-color: rgb(98, 210, 255);
+}
+.username{
+    display: block;
+    background-color: rgb(255, 255, 240);
+    border: none;
+    border-color: rgb(121, 185, 245);
+    color: rgb(121, 185, 245);
+    padding: 10px 10px;
+    text-align: center;
+    width: 100%;
+    /* display: inline-block; */
+    font-size: 100%;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.username:hover{
+    /* text-shadow: 0 0 2px rgb(17, 120, 255); */
+    box-shadow: 0 0 5px rgb(3, 102, 231);
+    color: white;
+    background-color: rgb(98, 210, 255);
+}
+.feedcontainer{
+    background-color: rgb(142, 200, 255)
+}
+#feed{
+    overflow:auto;
+    float: center;
+    /*width: 500px;*/
+    background-color: rgb(190, 231, 255);
+    height: calc(100vh - 100px);
+    padding: 100px, 100px;
+    margin: 20px;
+}
+
+.twit{
+    background-color: rgb(255, 255, 240); 
+    margin: 20px;
+    box-shadow: 3px 5px rgb(121, 185, 245);
+    padding: 2px 2px;
+}

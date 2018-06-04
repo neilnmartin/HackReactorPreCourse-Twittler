@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+    <link rel = "stylesheet" href = "twitstyle.css">
+  </head>
+  <title>Twittler</title>
+  <body>
+    <div class = "page">
+    <div class = "header">
+      <h1 id = "heading">
+        Twittler
+      </h1>
+    </div>
+    <div class = "visitorinteract">
+      <p>
+        <input type="text" id ="visitortwit">
+        <button id = "submit">Twit!</button> 
+      </p>
+    </div>
+    <div class = "list">
+      <ul id = "userList">
+      </ul>
+    </div>
+    <div class = "feedcontainer">
+      <div id = "feed">
+        <section class = "tweet">
+        </section>
+      </div>
+    </div>
+    <script>
+      // streams.home - an array of all tweets from users
+      // streams.users - object with properties for each user
+      //    -> streams.users.shawndrost has all of shawndrost's tweets
+      window.visitor = ''
+       $(document).ready(function(){
+        // set up jquery variables
+        var $body = $('body');
+        var $feed = $('#feed')
+        var $userList = $(`#userList`)
+        var $heading = $(`#heading`)
+        var $visitorTwit = $(`#visitortwit`)
+        var $submit = $(`#submit`)
+        streams.users.visitor = []
+        // $body.html('');
+        // refresh with heading
+        $heading.click(function(){
+          location.reload();
+        })
+        // Make home button
+        $userList.append($(`<p><button id = "home">HOME</button></p>`))
+        $userList.append($(`<p>Following:</p>`))
+        $home = $(`#home`);
+        for(var i in streams.users){
+          var $username = $(`<button class = "username"></button>`)
+          $username.text(`@` +`${i}`)
+          $username.appendTo($userList)
+        }
+        // var $tweet = $('<section class = "tweet"><p class = "date">')
+        var setnumber = 0
+        var newTwits = function(name){
+          // if name is undefined run regularly
+          var date = new Date()
+          var time = (`0` + date.getHours()).slice(-2) + ":" + (`0` + date.getMinutes()).slice(-2)// + ":" + date.getSeconds();
+          if(name === undefined){
+            var index = setnumber
+            setnumber = streams.home.length
+            while(index < setnumber){
+              var tweet = streams.home[index];
+              var $tweet = $('<div class = "twit"></div>');
+              if(tweet !== undefined){
+                $tweet.text(time + ' @' + tweet.user + ': ' + tweet.message);
+                $tweet.prependTo($feed);
+                // $feed.prepend($tweet)
+                index ++;
+              }
+            }
+          }
+          else{
+            // iterate through tweets and check for a username match  
+            $feed.empty() //to clear the feed
+            // $feed.html(``)
+            var areThereAny = 0
+            setnumber = streams.home.length
+            for(var i = 0; i < setnumber; i++){
+              var thisTwit = streams.home[i]
+              var $tweet = $('<div class = "twit"></div>')
+              if(thisTwit.user == name){
+                    $tweet.text(time + ' @' + thisTwit.user + ': ' + thisTwit.message);
+                    $tweet.prependTo($feed)
+                    areThereAny++
+              }
+            }
+            if(areThereAny === 0){
+                alert(`You have no twits!`)
+            }
+          }
+        }
+        newTwits()
+        $home.click(function(){
+          $feed.empty()
+          setnumber = 0
+          return newTwits()
+        })
+        $(`.username`).click(function(){
+          return newTwits($(this).text().slice(1)) //remove `@` from input
+        })
+        // Submit Twit
+        // button id = "submit"
+        $(`#submit`).click(function(){
+          // set time:
+          var date = new Date()          
+          var time = (`0` + date.getHours()).slice(-2) + ":" + (`0` + date.getMinutes()).slice(-2)// + ":" + date.getSeconds();
+          if($(`#visitortwit`).val())
+          // set input value
+          visitor = JSON.stringify($(`#visitortwit`).val())
+          // run function and prepend value
+          writeTweet(visitor)
+          var $tweet = $('<div class = "twit"></div>')
+          $tweet.text(time + ' @' + `visitor` + ': ' + visitor);
+          $tweet.prependTo($feed)
+        })
+        
+      });
+
+    </script>
+
+    </div>
+  </body>
+</html>
